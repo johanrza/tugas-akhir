@@ -143,7 +143,7 @@
                     <i class="fa fa-plus"></i> &nbsp Tambah Kategori
                   </button><br><br>
 
-                  <form action="kategori_act.php" method="post">
+                  <form action="" method="post">
                     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
                       aria-labelledby="exampleModalLabel" aria-hidden="true">
                       <div class="modal-dialog" role="document">
@@ -171,6 +171,7 @@
                       </div>
                     </div>
                   </form>
+
                   <table id="example1" class="table table-bordered table-striped">
                     <thead>
                       <tr>
@@ -185,14 +186,73 @@
                         <td>Internet Explorer 4.0</td>
                         <td>
                           <button type="button" class="btn btn-warning btn-sm" data-toggle="modal"
-                            data-target="#edit_kategori_">
+                            data-target="#edit_kategori">
                             <i class="fa fa-cog"></i>
                           </button>
 
                           <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
-                            data-target="#hapus_kategori_">
+                            data-target="#hapus_kategori">
                             <i class="fa fa-trash"></i>
                           </button>
+
+                          <!-- Modal update -->
+                          <form action="kategori_update.php" method="post">
+                            <div class="modal fade" id="edit_kategori" tabindex="-1"
+                              role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                              <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Edit Kategori</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                      <span aria-hidden="true">&times;</span>
+                                    </button>
+                                  </div>
+                                  <div class="modal-body">
+
+                                    <div class="form-group" style="width:100%">
+                                      <label>Nama Kategori</label>
+                                      <input type="hidden" name="id" required="required" class="form-control"
+                                        placeholder="Nama Kategori .." value="">
+                                      <input type="text" name="kategori" required="required" class="form-control"
+                                        placeholder="Nama Kategori .." value=""
+                                        style="width:100%">
+                                    </div>
+
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                                    <button type="submit" class="btn btn-primary">Simpan</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </form>
+                          <!-- /Modal update -->
+
+                          <!-- Modal hapus -->
+                          <div class="modal fade" id="hapus_kategori" tabindex="-1"
+                            role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="exampleModalLabel">Peringatan!</h5>
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+                                <div class="modal-body">
+
+                                  <p>Apakah Anda Yakin Ingin Menghapus Data Ini ?</p>
+
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                                  <a href="kategori_hapus.php?id=<?php echo $d['kategori_id'] ?>"
+                                    class="btn btn-primary">Hapus</a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
                       </tr>
                     </tbody>
                   </table>
