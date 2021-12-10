@@ -139,9 +139,38 @@
               <div class="card">
                 <!-- /.card-header -->
                 <div class="card-body">
-                <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModal">
-                <i class="fa fa-plus"></i> &nbsp Tambah Kategori
-              </button><br><br>
+                  <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModal">
+                    <i class="fa fa-plus"></i> &nbsp Tambah Kategori
+                  </button><br><br>
+
+                  <form action="kategori_act.php" method="post">
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                      aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Tambah Kategori</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+
+                            <div class="form-group">
+                              <label>Nama Kategori</label>
+                              <input type="text" name="kategori" required="required" class="form-control"
+                                placeholder="Nama Kategori ..">
+                            </div>
+
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                            <button type="submit" class="btn btn-primary">Simpan</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
                   <table id="example1" class="table table-bordered table-striped">
                     <thead>
                       <tr>
@@ -155,11 +184,13 @@
                         <td>#</td>
                         <td>Internet Explorer 4.0</td>
                         <td>
-                          <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#edit_kategori_">
+                          <button type="button" class="btn btn-warning btn-sm" data-toggle="modal"
+                            data-target="#edit_kategori_">
                             <i class="fa fa-cog"></i>
                           </button>
 
-                          <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#hapus_kategori_">
+                          <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
+                            data-target="#hapus_kategori_">
                             <i class="fa fa-trash"></i>
                           </button>
                       </tr>
