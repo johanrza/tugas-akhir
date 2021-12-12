@@ -145,7 +145,8 @@
 
                   <!-- Modal -->
                   <form action="#" method="post">
-                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                      aria-labelledby="exampleModalLabel" aria-hidden="true">
                       <div class="modal-dialog" role="document">
                         <div class="modal-content">
                           <div class="modal-header">
@@ -201,14 +202,79 @@
                         <td>X</td>
                         <td>
                           <button type="button" class="btn btn-warning btn-sm" data-toggle="modal"
-                            data-target="#edit_hutang_">
+                            data-target="#edit_hutang">
                             <i class="fa fa-cog"></i>
                           </button>
 
                           <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
-                            data-target="#hapus_hutang_">
+                            data-target="#hapus_hutang">
                             <i class="fa fa-trash"></i>
                           </button>
+                          
+                          <!-- Modal Update -->
+                          <form action="#" method="POST">
+                            <div class="modal fade" id="edit_hutang" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                              <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <h4 class="modal-title" id="exampleModalLabel">Edit hutang</h4>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                      <span aria-hidden="true">&times;</span>
+                                    </button>
+                                  </div>
+                                  <div class="modal-body">
+                                    <div class="form-group" style="width:100%;margin-bottom:20px">
+                                      <label>Tanggal</label>
+                                      <input type="hidden" name="id" value="">
+                                      <input type="text" style="width:100%" name="tanggal" required="required"
+                                        class="form-control datepicker2" value="">
+                                    </div>
+
+                                    <div class="form-group" style="width:100%;margin-bottom:20px">
+                                      <label>Nominal</label>
+                                      <input type="number" style="width:100%" name="nominal" required="required"
+                                        class="form-control" placeholder="Masukkan Nominal .."
+                                        value="">
+                                    </div>
+                                    <div class="form-group" style="width:100%">
+                                      <label>Keterangan</label>
+                                      <textarea name="keterangan" style="width:100%" class="form-control" rows="4"></textarea>
+                                    </div>
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                                    <button type="submit" class="btn btn-primary">Simpan</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </form>
+                          <!-- /Modal Update -->
+
+                          <!-- Modal hapus -->
+                          <div class="modal fade" id="hapus_hutang" tabindex="-1"
+                            role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h4 class="modal-title" id="exampleModalLabel">Peringatan!</h4>
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+                                <div class="modal-body">
+
+                                  <p>Apakah Anda Yakin Ingin Menghapus Data Ini ?</p>
+
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                                  <a href="#" class="btn btn-primary">Hapus</a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- /Modal hapus -->
                         </td>
                       </tr>
                     </tbody>
