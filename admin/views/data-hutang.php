@@ -142,6 +142,45 @@
                   <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModal">
                     <i class="fa fa-plus"></i> &nbsp Tambah Hutang
                   </button><br><br>
+
+                  <!-- Modal -->
+                  <form action="#" method="post">
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h4 class="modal-title" id="exampleModalLabel">Tambah Hutang</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+
+                            <div class="form-group">
+                              <label>Tanggal</label>
+                              <input type="date" name="tanggal" required="required" class="form-control datepicker2">
+                            </div>
+
+                            <div class="form-group">
+                              <label>Nominal</label>
+                              <input type="number" name="nominal" required="required" class="form-control"
+                                placeholder="Masukkan Nominal ..">
+                            </div>
+
+                            <div class="form-group">
+                              <label>Keterangan</label>
+                              <textarea name="keterangan" class="form-control" rows="4"></textarea>
+                            </div>
+
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                            <button type="submit" class="btn btn-primary">Simpan</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
                   <table id="example1" class="table table-bordered table-striped">
                     <thead>
                       <tr>
@@ -161,11 +200,13 @@
                         <td>4</td>
                         <td>X</td>
                         <td>
-                          <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#edit_hutang_">
+                          <button type="button" class="btn btn-warning btn-sm" data-toggle="modal"
+                            data-target="#edit_hutang_">
                             <i class="fa fa-cog"></i>
                           </button>
 
-                          <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#hapus_hutang_">
+                          <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
+                            data-target="#hapus_hutang_">
                             <i class="fa fa-trash"></i>
                           </button>
                         </td>
