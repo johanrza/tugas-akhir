@@ -223,7 +223,7 @@
                                       <label>Nama Kategori</label>
                                       <input type="hidden" name="id" required="required" class="form-control"
                                         value="<?= $row['id_kategori'];?>">
-                                      <input type="text" name="kategori" required="required" class="form-control"
+                                      <input type="text" name="nama_kategori" required="required" class="form-control"
                                         placeholder="Nama Kategori..." value="<?= $row['nama_kategori'];?>" style="width:100%">
                                     </div>
 
