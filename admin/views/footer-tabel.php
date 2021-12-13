@@ -87,12 +87,11 @@
       })
     });
 
-    $('.toastsDefaultInfo').click(function () {
+    $('.toastsDefaultInfo').append(function () {
       $(document).Toasts('create', {
         class: 'bg-info',
-        title: 'Toast Title',
-        subtitle: 'Subtitle',
-        body: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+        title: 'BERHASIL DIHAPUS',
+        body: 'Data anda berhasil dihapus'
       })
     });
 
