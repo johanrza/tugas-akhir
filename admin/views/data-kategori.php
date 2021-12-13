@@ -15,6 +15,10 @@
   <link rel="stylesheet" href="../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css" />
   <link rel="stylesheet" href="../plugins/datatables-responsive/css/responsive.bootstrap4.min.css" />
   <link rel="stylesheet" href="../plugins/datatables-buttons/css/buttons.bootstrap4.min.css" />
+  <!-- SweetAlert2 -->
+  <link rel="stylesheet" href="../plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
+  <!-- Toastr -->
+  <link rel="stylesheet" href="../plugins/toastr/toastr.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="../dist/css/adminlte.min.css" />
 </head>
@@ -141,7 +145,8 @@
                 <div class="card-body">
                   <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModal">
                     <i class="fa fa-plus"></i> &nbsp Tambah Kategori
-                  </button><br><br>
+                  </button><br>
+                  <?php include 'alert.php';?>
 
                   <form action="../models/m_kategori.php" method="POST">
                     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
