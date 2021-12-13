@@ -143,7 +143,7 @@
                     <i class="fa fa-plus"></i> &nbsp Tambah Kategori
                   </button><br><br>
 
-                  <form action="" method="post">
+                  <form action="../models/m_kategori.php" method="POST">
                     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
                       aria-labelledby="exampleModalLabel" aria-hidden="true">
                       <div class="modal-dialog" role="document">
@@ -158,8 +158,8 @@
 
                             <div class="form-group">
                               <label>Nama Kategori</label>
-                              <input type="text" name="kategori" required="required" class="form-control"
-                                placeholder="Nama Kategori ..">
+                              <input type="text" name="nama_kategori" required="required" class="form-control"
+                                placeholder="Nama Kategori...">
                             </div>
 
                           </div>
@@ -172,7 +172,7 @@
                     </div>
                   </form>
 
-                  <table id="example1" class="table table-bordered table-striped">
+                  <table id="example2" class="table table-bordered table-striped">
                     <thead>
                       <tr>
                         <th width="1%">NO</th>
@@ -181,23 +181,33 @@
                       </tr>
                     </thead>
                     <tbody>
+                      <?php
+                        include '../../connection.php';
+                        $id = 1;
+                        $data = mysqli_query($kon,"SELECT * FROM tb_kategori ORDER BY nama_kategori ASC");
+                        while ($row = mysqli_fetch_assoc($data)) {
+                      ?>
                       <tr>
-                        <td>#</td>
-                        <td>Internet Explorer 4.0</td>
+                        <td><?= $id++;?></td>
+                        <td><?= $row['nama_kategori'];?></td>
                         <td>
-                          <button type="button" class="btn btn-warning btn-sm" title="Edit Data" data-toggle="modal"
-                            data-target="#edit_kategori">
-                            <i class="fa fa-cog"></i>
-                          </button>
+                          <?php
+                          if($row['id_kategori'] != 1){
+                            ?>
+                            <button type="button" class="btn btn-warning btn-sm" title="Edit Data" data-toggle="modal"
+                              data-target="#edit_kategori<?= $row['id_kategori'];?>">
+                              <i class="fa fa-cog"></i>
+                            </button>
 
-                          <button type="button" class="btn btn-danger btn-sm" title="Hapus Data" data-toggle="modal"
-                            data-target="#hapus_kategori">
-                            <i class="fa fa-trash"></i>
-                          </button>
+                            <button type="button" class="btn btn-danger btn-sm" title="Hapus Data" data-toggle="modal"
+                              data-target="#hapus_kategori<?= $row['id_kategori'];?>">
+                              <i class="fa fa-trash"></i>
+                            </button>
+                          <?php } ?>
 
                           <!-- Modal update -->
-                          <form action="kategori_update.php" method="post">
-                            <div class="modal fade" id="edit_kategori" tabindex="-1"
+                          <form action="../models/m_kategori_edit.php" method="POST">
+                            <div class="modal fade" id="edit_kategori<?= $row['id_kategori'];?>" tabindex="-1"
                               role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                               <div class="modal-dialog" role="document">
                                 <div class="modal-content">
@@ -212,10 +222,9 @@
                                     <div class="form-group" style="width:100%">
                                       <label>Nama Kategori</label>
                                       <input type="hidden" name="id" required="required" class="form-control"
-                                        placeholder="Nama Kategori .." value="">
+                                        value="<?= $row['id_kategori'];?>">
                                       <input type="text" name="kategori" required="required" class="form-control"
-                                        placeholder="Nama Kategori .." value=""
-                                        style="width:100%">
+                                        placeholder="Nama Kategori..." value="<?= $row['nama_kategori'];?>" style="width:100%">
                                     </div>
 
                                   </div>
@@ -230,7 +239,7 @@
                           <!-- /Modal update -->
 
                           <!-- Modal hapus -->
-                          <div class="modal fade" id="hapus_kategori" tabindex="-1"
+                          <div class="modal fade" id="hapus_kategori<?= $row['id_kategori'];?>" tabindex="-1"
                             role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                               <div class="modal-content">
@@ -247,14 +256,17 @@
                                 </div>
                                 <div class="modal-footer">
                                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                                  <a href="#" class="btn btn-primary">Hapus</a>
+                                  <a href="../models/m_kategori_hapus.php?id=<?= $row['id_kategori'];?>" class="btn btn-primary">Hapus</a>
                                 </div>
                               </div>
                             </div>
                           </div>
                       </tr>
+                      <?php } ?>
                     </tbody>
                   </table>
+                  
+                  <a href="data-cetak-kategori.php" class="btn btn-secondary">Convert</a><br>
                 </div>
                 <!-- /.card-body -->
               </div>
