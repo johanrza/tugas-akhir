@@ -54,8 +54,8 @@
         <!-- Sidebar Menu -->
         <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
+            <!-- Add icons to the links using the .nav-icon class 
+            with font-awesome or any other icon font library -->
             <li class="nav-item">
               <a href="../index.php" class="nav-link">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -141,7 +141,8 @@
                 <div class="card-body">
                   <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModal">
                     <i class="fa fa-plus"></i> &nbsp Tambah Piutang
-                  </button><br><br>
+                  </button><br>
+                  <?php include 'alert.php'; ?>
 
                   <!-- Modal -->
                   <form action="#" method="POST">
@@ -182,7 +183,7 @@
                     </div>
                   </form>
 
-                  <table id="example1" class="table table-bordered table-striped">
+                  <table id="example2" class="table table-bordered table-striped">
                     <thead>
                       <tr>
                         <th width="1%">NO</th>
@@ -283,6 +284,8 @@
                       </tr>
                     </tbody>
                   </table>
+                  <br>
+                  <a href="data-cetak-piutang.php" class="btn btn-secondary">Convert</a>
                 </div>
                 <!-- /.card-body -->
               </div>
