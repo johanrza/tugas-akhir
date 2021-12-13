@@ -38,7 +38,7 @@
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
       <!-- Brand Logo -->
-      <a href="../index.html" class="brand-link">
+      <a href="../index.php" class="brand-link">
         <img src="../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
           style="opacity: 0.8" />
         <span class="brand-text font-weight-light"><b>Pecinta</b>Uang</span><br>
@@ -125,7 +125,7 @@
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item"><a href="../index.php">Home</a></li>
                 <li class="breadcrumb-item active">Data Transaksi</li>
               </ol>
             </div>
@@ -144,8 +144,7 @@
                 <div class="card-body">
                   <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModal">
                     <i class="fa fa-plus"></i> &nbsp Tambah Transaksi
-                  </button>
-                  <hr>
+                  </button><br><br>
                   <?php 
                     if(isset($_GET['alert'])){
                       if($_GET['alert']=='gagal'){
@@ -164,7 +163,7 @@
                     }
                   ?>
                   <div class="box-body">
-                    <form action="transaksi_act.php" method="post" enctype="multipart/form-data">
+                    <form action="#" method="post" enctype="multipart/form-data">
                       <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
                         aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
@@ -179,7 +178,7 @@
 
                               <div class="form-group">
                                 <label>Tanggal</label>
-                                <input type="text" name="tanggal" required="required" class="form-control datepicker2">
+                                <input type="date" name="tanggal" required="required" class="form-control datepicker2">
                               </div>
 
                               <div class="form-group">
@@ -216,14 +215,6 @@
                                 <small>File yang di perbolehkan *PDF | *JPG | *jpeg </small>
                               </div>
 
-                              <div class="form-group">
-                                <label>Rekening Bank</label>
-                                <select name="bank" class="form-control" required="required">
-                                  <option value="">- Pilih -</option>
-                                  <option value=""></option>
-                                </select>
-                              </div>
-
                             </div>
                             <div class="modal-footer">
                               <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
@@ -254,29 +245,25 @@
                           <td>4</td>
                           <td>4</td>
                           <td>
-                            <button type="button" class="btn btn-warning btn-sm" data-toggle="modal"
-                              data-target="#edit_transaksi_">
+                            <button type="button" class="btn btn-warning btn-sm" title="Edit Data" data-toggle="modal" data-target="#edit_transaksi_">
                               <i class="fa fa-cog"></i>
                             </button>
 
-                            <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
-                              data-target="#hapus_transaksi_">
+                            <button type="button" class="btn btn-danger btn-sm" title="Hapus Data" data-toggle="modal" data-target="#hapus_transaksi_">
                               <i class="fa fa-trash"></i>
                             </button>
 
-                            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal"
-                              data-target="#lihat_transaksi_">
+                            <button type="button" class="btn btn-primary btn-sm" title="Lihat" data-toggle="modal" data-target="#lihat_transaksi_">
                               <i class="fa fa-eye"></i>
                             </button>
 
                             <!-- Modal update -->
                             <form action="transaksi_update.php" method="post" enctype="multipart/form-data">
-                              <div class="modal fade" id="edit_transaksi_" tabindex="-1" role="dialog"
-                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                              <div class="modal fade" id="edit_transaksi_" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                   <div class="modal-content">
                                     <div class="modal-header">
-                                      <h4 class="modal-title" id="exampleModalLabel">Edit transaksi</h4>
+                                      <h4 class="modal-title" id="exampleModalLabel">Edit Transaksi</h4>
                                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                       </button>
@@ -357,8 +344,7 @@
                                   </div>
                                   <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                                    <a href=""
-                                      class="btn btn-primary">Hapus</a>
+                                    <a href="" class="btn btn-primary">Hapus</a>
                                   </div>
                                 </div>
                               </div>

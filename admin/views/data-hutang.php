@@ -34,7 +34,7 @@
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
       <!-- Brand Logo -->
-      <a href="../index3.html" class="brand-link">
+      <a href="../index.php" class="brand-link">
         <img src="../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
           style="opacity: 0.8" />
         <span class="brand-text font-weight-light"><b>Pecinta</b>Uang</span><br>
@@ -122,7 +122,7 @@
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item"><a href="../index.php">Home</a></li>
                 <li class="breadcrumb-item active">Data Hutang</li>
               </ol>
             </div>
@@ -201,12 +201,12 @@
                         <td>4</td>
                         <td>X</td>
                         <td>
-                          <button type="button" class="btn btn-warning btn-sm" data-toggle="modal"
+                          <button type="button" class="btn btn-warning btn-sm" title="Edit Data" data-toggle="modal"
                             data-target="#edit_hutang">
                             <i class="fa fa-cog"></i>
                           </button>
 
-                          <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
+                          <button type="button" class="btn btn-danger btn-sm" title="Hapus Data" data-toggle="modal"
                             data-target="#hapus_hutang">
                             <i class="fa fa-trash"></i>
                           </button>
@@ -217,7 +217,7 @@
                               <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                   <div class="modal-header">
-                                    <h4 class="modal-title" id="exampleModalLabel">Edit hutang</h4>
+                                    <h4 class="modal-title" id="exampleModalLabel">Edit Hutang</h4>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                       <span aria-hidden="true">&times;</span>
                                     </button>
@@ -226,7 +226,7 @@
                                     <div class="form-group" style="width:100%;margin-bottom:20px">
                                       <label>Tanggal</label>
                                       <input type="hidden" name="id" value="">
-                                      <input type="text" style="width:100%" name="tanggal" required="required"
+                                      <input type="date" style="width:100%" name="tanggal" required="required"
                                         class="form-control datepicker2" value="">
                                     </div>
 
@@ -257,7 +257,7 @@
                             <div class="modal-dialog" role="document">
                               <div class="modal-content">
                                 <div class="modal-header">
-                                  <h4 class="modal-title" id="exampleModalLabel">Peringatan!</h4>
+                                  <h4 class="modal-title" id="exampleModalLabel">Hapus Data</h4>
                                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                   </button>
