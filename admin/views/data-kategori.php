@@ -270,8 +270,8 @@
                       <?php } ?>
                     </tbody>
                   </table>
-                  
-                  <a href="data-cetak-kategori.php" class="btn btn-secondary">Convert</a><br>
+                  <br>
+                  <a href="data-cetak-kategori.php" class="btn btn-secondary">Convert</a>
                 </div>
                 <!-- /.card-body -->
               </div>
