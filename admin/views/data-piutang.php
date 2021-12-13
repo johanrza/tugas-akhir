@@ -141,37 +141,47 @@
                 <div class="card-body">
                   <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModal">
                     <i class="fa fa-plus"></i> &nbsp Tambah Piutang
-                  </button>
-                  <hr>
-                  <?php 
-                if(isset($_GET['alert'])){
-                  if($_GET['alert']=='gagal'){
-                    ?>
-                  <div class="alert alert-warning alert-dismissible">
-                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                    <h4><i class="icon fa fa-warning"></i> Peringatan !</h4>
-                    Ekstensi Tidak Diperbolehkan
-                  </div>
-                  <?php
-                  }elseif($_GET['alert']=="berhasil"){
-                    ?>
-                  <div class="alert alert-success alert-dismissible">
-                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                    <h4><i class="icon fa fa-check"></i> Success</h4>
-                    Berhasil Disimpan
-                  </div>
-                  <?php
-                  }elseif($_GET['alert']=="berhasilupdate"){
-                    ?>
-                  <div class="alert alert-success alert-dismissible">
-                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                    <h4><i class="icon fa fa-check"></i> Success</h4>
-                    Berhasil Update
-                  </div>
-                  <?php
-                  }
-                }
-                ?>
+                  </button><br><br>
+
+                  <!-- Modal -->
+                  <form action="#" method="POST">
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h4 class="modal-title" id="exampleModalLabel">Tambah Piutang</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+
+                            <div class="form-group">
+                              <label>Tanggal</label>
+                              <input type="date" name="tanggal" required="required" class="form-control">
+                            </div>
+
+                            <div class="form-group">
+                              <label>Nominal</label>
+                              <input type="number" name="nominal" required="required" class="form-control"
+                                placeholder="Masukkan Nominal ..">
+                            </div>
+
+                            <div class="form-group">
+                              <label>Keterangan</label>
+                              <textarea name="keterangan" class="form-control" rows="4"></textarea>
+                            </div>
+
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                            <button type="submit" class="btn btn-primary">Simpan</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+
                   <table id="example1" class="table table-bordered table-striped">
                     <thead>
                       <tr>
@@ -191,15 +201,84 @@
                         <td>4</td>
                         <td>X</td>
                         <td>
-                          <button type="button" class="btn btn-warning btn-sm" data-toggle="modal"
-                            data-target="#edit_hutang_">
+                          <button type="button" class="btn btn-warning btn-sm" title="Edit Data" data-toggle="modal"
+                            data-target="#edit_piutang">
                             <i class="fa fa-cog"></i>
                           </button>
 
-                          <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
-                            data-target="#hapus_hutang_">
+                          <button type="button" class="btn btn-danger btn-sm" title="Hapus Data" data-toggle="modal"
+                            data-target="#hapus_piutang">
                             <i class="fa fa-trash"></i>
                           </button>
+
+                          <!-- Modal Update -->
+                          <form action="#" method="POST">
+                            <div class="modal fade" id="edit_piutang" tabindex="-1" role="dialog"
+                              aria-labelledby="exampleModalLabel" aria-hidden="true">
+                              <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <h4 class="modal-title" id="exampleModalLabel">Edit Piutang</h4>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                      <span aria-hidden="true">&times;</span>
+                                    </button>
+                                  </div>
+                                  <div class="modal-body">
+
+                                    <div class="form-group" style="width:100%;margin-bottom:20px">
+                                      <label>Tanggal</label>
+                                      <input type="hidden" name="id" value="">
+                                      <input type="date" style="width:100%" name="tanggal" required="required" class="form-control datepicker2" value="">
+                                    </div>
+
+                                    <div class="form-group" style="width:100%;margin-bottom:20px">
+                                      <label>Nominal</label>
+                                      <input type="number" style="width:100%" name="nominal" required="required"
+                                        class="form-control" placeholder="Masukkan Nominal .." value="">
+                                    </div>
+
+                                    <div class="form-group" style="width:100%">
+                                      <label>Keterangan</label>
+                                      <textarea name="keterangan" style="width:100%" class="form-control"
+                                        rows="4"></textarea>
+                                    </div>
+
+
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                                    <button type="submit" class="btn btn-primary">Simpan</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </form>
+                          <!-- /Modal Update -->
+
+                          <!-- Modal Hapus -->
+                          <div class="modal fade" id="hapus_piutang" tabindex="-1" role="dialog"
+                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h4 class="modal-title" id="exampleModalLabel">Hapus Data</h4>
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+                                <div class="modal-body">
+
+                                  <p>Apakah Anda Yakin Ingin Menghapus Data Ini ?</p>
+
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                                  <a href="#" class="btn btn-primary">Hapus</a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- /Modal Hapus -->
                         </td>
                       </tr>
                     </tbody>
