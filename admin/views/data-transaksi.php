@@ -144,26 +144,13 @@
                 <div class="card-body">
                   <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModal">
                     <i class="fa fa-plus"></i> &nbsp Tambah Transaksi
-                  </button><br><br>
+                  </button><br>
                   <?php 
-                    if(isset($_GET['alert'])){
-                      if($_GET['alert']=='gagal'){
+                    include 'alert.php';
                   ?>
-                  <button class="close toastsDefaultWarning"></button>
-                  <?php
-                        }elseif($_GET['alert']=="berhasil"){
-                      ?>
-                  <button class="close toastsDefaultSuccess"></button>
-                  <?php
-                        }elseif($_GET['alert']=="berhasilupdate"){
-                      ?>
-                  <button class="close toastsDefaultSuccessUpdate"></button>
-                  <?php
-                      }
-                    }
-                  ?>
+
                   <div class="box-body">
-                    <form action="#" method="post" enctype="multipart/form-data">
+                    <form action="../models/m_transaksi.php" method="POST" enctype="multipart/form-data">
                       <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
                         aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
@@ -224,7 +211,7 @@
                         </div>
                       </div>
                     </form>
-                    <table id="example1" class="table table-bordered table-striped">
+                    <table id="example2" class="table table-bordered table-striped">
                       <thead>
                         <tr>
                           <th width="1%">NO</th>
@@ -245,21 +232,25 @@
                           <td>4</td>
                           <td>4</td>
                           <td>
-                            <button type="button" class="btn btn-warning btn-sm" title="Edit Data" data-toggle="modal" data-target="#edit_transaksi_">
+                            <button type="button" class="btn btn-warning btn-sm" title="Edit Data" data-toggle="modal"
+                              data-target="#edit_transaksi">
                               <i class="fa fa-cog"></i>
                             </button>
 
-                            <button type="button" class="btn btn-danger btn-sm" title="Hapus Data" data-toggle="modal" data-target="#hapus_transaksi_">
+                            <button type="button" class="btn btn-danger btn-sm" title="Hapus Data" data-toggle="modal"
+                              data-target="#hapus_transaksi_">
                               <i class="fa fa-trash"></i>
                             </button>
 
-                            <button type="button" class="btn btn-primary btn-sm" title="Lihat" data-toggle="modal" data-target="#lihat_transaksi_">
+                            <button type="button" class="btn btn-primary btn-sm" title="Lihat" data-toggle="modal"
+                              data-target="#lihat_transaksi_">
                               <i class="fa fa-eye"></i>
                             </button>
 
                             <!-- Modal update -->
-                            <form action="transaksi_update.php" method="post" enctype="multipart/form-data">
-                              <div class="modal fade" id="edit_transaksi_" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <form action="m_transaksi_edit.php" method="POST" enctype="multipart/form-data">
+                              <div class="modal fade" id="edit_transaksi" tabindex="-1" role="dialog"
+                                aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                   <div class="modal-content">
                                     <div class="modal-header">
@@ -292,6 +283,7 @@
                                         <select name="kategori" style="width:100%" class="form-control"
                                           required="required">
                                           <option value="">- Pilih -</option>
+
                                         </select>
                                       </div>
 
@@ -327,8 +319,8 @@
                             <!--/Modal update -->
 
                             <!-- Modal hapus -->
-                            <div class="modal fade" id="hapus_transaksi_" tabindex="-1"
-                              role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal fade" id="hapus_transaksi_" tabindex="-1" role="dialog"
+                              aria-labelledby="exampleModalLabel" aria-hidden="true">
                               <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                   <div class="modal-header">
@@ -354,6 +346,8 @@
                         </tr>
                       </tbody>
                     </table>
+                    <br>
+                    <a href="data-cetak-transaksi.php" class="btn btn-secondary">Convert</a>
                   </div>
                 </div>
                 <!-- /.card-body -->
