@@ -145,7 +145,7 @@
                   <?php include 'alert.php'; ?>
 
                   <!-- Modal -->
-                  <form action="m_hutang.php" method="post">
+                  <form action="../models/m_hutang.php" method="post">
                     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
                       aria-labelledby="exampleModalLabel" aria-hidden="true">
                       <div class="modal-dialog" role="document">
@@ -160,7 +160,7 @@
 
                             <div class="form-group">
                               <label>Tanggal</label>
-                              <input type="date" name="tanggal" required="required" class="form-control datepicker2">
+                              <input type="date" name="tanggal" required="required" class="form-control">
                             </div>
 
                             <div class="form-group">
@@ -187,7 +187,6 @@
                     <thead>
                       <tr>
                         <th width="1%">NO</th>
-                        <th width="1%">KODE</th>
                         <th width="10%" class="text-center">TANGGAL</th>
                         <th class="text-center">KETERANGAN</th>
                         <th class="text-center">NOMINAL</th>
@@ -195,20 +194,25 @@
                       </tr>
                     </thead>
                     <tbody>
+                      <?php
+                      include '../../connection.php';
+                      $id=1;
+                      $data = mysqli_query($kon, "SELECT * FROM tb_hutang");
+                      while ($row=mysqli_fetch_assoc($data)) {
+                      ?>
                       <tr>
-                        <td>#</td>
-                        <td>#</td>
-                        <td>Win 95+</td>
-                        <td>4</td>
-                        <td>X</td>
+                        <td><?= $id++?></td>
+                        <td><?= date('d-m-Y', strtotime($row['tanggal_hutang']))?></td>
+                        <td><?= $row['keterangan_hutang']?></td>
+                        <td><?= "Rp. ".number_format($row['nominal_hutang'])." ,-";?></td>
                         <td>
                           <button type="button" class="btn btn-warning btn-sm" title="Edit Data" data-toggle="modal"
-                            data-target="#edit_hutang">
+                            data-target="#edit_hutang<?= $row['id_hutang']?>">
                             <i class="fa fa-cog"></i>
                           </button>
 
                           <button type="button" class="btn btn-danger btn-sm" title="Hapus Data" data-toggle="modal"
-                            data-target="#hapus_hutang">
+                            data-target="#hapus_hutang<?= $row['id_hutang']?>">
                             <i class="fa fa-trash"></i>
                           </button>
                           
@@ -228,7 +232,7 @@
                                       <label>Tanggal</label>
                                       <input type="hidden" name="id" value="">
                                       <input type="date" style="width:100%" name="tanggal" required="required"
-                                        class="form-control datepicker2" value="">
+                                        class="form-control" value="">
                                     </div>
 
                                     <div class="form-group" style="width:100%;margin-bottom:20px">
@@ -278,6 +282,7 @@
                           <!-- /Modal hapus -->
                         </td>
                       </tr>
+                      <?php } ?>
                     </tbody>
                   </table>
                   <br>
