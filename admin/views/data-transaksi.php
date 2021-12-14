@@ -207,7 +207,7 @@
 
                               <div class="form-group">
                                 <label>Upload File</label>
-                                <input type="file" name="trnfoto" required="required" class="form-control">
+                                <input type="file" name="up_foto" required="required" class="form-control">
                                 <small>File yang di perbolehkan *PDF | *JPG | *jpeg | *png </small>
                               </div>
 
@@ -344,7 +344,7 @@
 
                                       <div class="form-group" style="width:100%;margin-bottom:20px">
                                         <label>Upload File</label>
-                                        <input type="file" name="trnfoto" class="form-control"><br>
+                                        <input type="file" name="up_foto" class="form-control"><br>
                                         <?= $row['foto_transaksi'];?>
                                         <p class="help-block">Bila File
                                           <?="<a class='fancybox btn btn-xs btn-primary' target=_blank href='../image/bukti/$row[foto_transaksi]'>$row[foto_transaksi]</a>";?>tidak
