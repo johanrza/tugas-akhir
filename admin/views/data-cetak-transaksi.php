@@ -142,6 +142,7 @@
               <div class="card">
                 <!-- /.card-header -->
                 <div class="card-body">
+
                   <div class="box-body">
                     <table id="example1" class="table table-bordered table-striped">
                       <thead>
@@ -155,14 +156,32 @@
                         </tr>
                       </thead>
                       <tbody>
+                        <?php
+                          include '../../connection.php';
+                          $id=1;
+                          $data=mysqli_query($kon, "SELECT * FROM tb_transaksi, tb_kategori WHERE id_kategori=kategori_transaksi ORDER BY id_transaksi DESC");
+                          while($row = mysqli_fetch_assoc($data)){
+                        ?>
                         <tr>
-                          <td>Trident</td>
-                          <td>Internet Explorer 4.0</td>
-                          <td>Win 95+</td>
-                          <td>4</td>
-                          <td>4</td>
-                          <td>4</td>
-                        </tr>
+                          <td><?= $id++;?></td>
+                          <td><?= date('d-m-Y', strtotime($row['tanggal_transaksi']));?></td>
+                          <td><?= $row['nama_kategori'];?></td>
+                          <td><?= $row['keterangan_transaksi'];?></td>
+                          <td><?php 
+                          if ($row['jenis_transaksi']=="Pemasukan") {
+                            echo "Rp. ".number_format($row['nominal_transaksi'])." ,-";
+                          }else{
+                            echo "-";
+                          }
+                          ?></td>
+                          <td><?php 
+                          if ($row['jenis_transaksi']=="Pengeluaran") {
+                            echo "Rp. ".number_format($row['nominal_transaksi'])." ,-";
+                          }else{
+                            echo "-";
+                          }
+                          ?></td>
+                        <?php } ?>
                       </tbody>
                     </table>
                   </div>
