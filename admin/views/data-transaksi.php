@@ -165,7 +165,7 @@
 
                               <div class="form-group">
                                 <label>Tanggal</label>
-                                <input type="date" name="tanggal" required="required" class="form-control datepicker2">
+                                <input type="text" name="tanggal" required="required" class="form-control datepicker2">
                               </div>
 
                               <div class="form-group">
@@ -180,8 +180,13 @@
                               <div class="form-group">
                                 <label>Kategori</label>
                                 <select name="kategori" class="form-control" required="required">
-                                  <option value="">- Pilih -</option>
-                                  <option value=""></option>
+                                  <option value="">-- Pilih --</option>
+                                  <?php 
+                                  $data = mysqli_query($kon,"SELECT * FROM tb_kategori ORDER BY nama_kategori ASC");
+                                  while($row = mysqli_fetch_assoc($data)){
+                                  ?>
+                                  <option value="<?= $row['id_kategori']; ?>"><?= $row['nama_kategori']; ?></option>
+                                  <?php } ?>
                                 </select>
                               </div>
 
@@ -211,6 +216,7 @@
                         </div>
                       </div>
                     </form>
+
                     <table id="example2" class="table table-bordered table-striped">
                       <thead>
                         <tr>
@@ -224,13 +230,31 @@
                         </tr>
                       </thead>
                       <tbody>
+                        <?php
+                          include '../../connection.php';
+                          $id=1;
+                          $data=mysqli_query($kon, "SELECT * FROM tb_transaksi, tb_kategori WHERE id_kategori=kategori_transaksi ORDER BY id_transaksi DESC");
+                          while($row = mysqli_fetch_assoc($data)){
+                        ?>
                         <tr>
-                          <td>Trident</td>
-                          <td>Internet Explorer 4.0</td>
-                          <td>Win 95+</td>
-                          <td>4</td>
-                          <td>4</td>
-                          <td>4</td>
+                          <td><?= $id++;?></td>
+                          <td><?= date('d-m-Y', strtotime($row['tanggal_transaksi']));?></td>
+                          <td><?= $row['nama_kategori'];?></td>
+                          <td><?= $row['keterangan_transaksi'];?></td>
+                          <td><?php 
+                          if ($row['jenis_transaksi']=="Pemasukan") {
+                            echo "Rp. ".number_format($row['nominal_transaksi'])." ,-";
+                          }else{
+                            echo "-";
+                          }
+                          ?></td>
+                          <td><?php 
+                          if ($row['jenis_transaksi']=="Pengeluaran") {
+                            echo "Rp. ".number_format($row['nominal_transaksi'])." ,-";
+                          }else{
+                            echo "-";
+                          }
+                          ?></td>
                           <td>
                             <button type="button" class="btn btn-warning btn-sm" title="Edit Data" data-toggle="modal"
                               data-target="#edit_transaksi">
@@ -238,18 +262,18 @@
                             </button>
 
                             <button type="button" class="btn btn-danger btn-sm" title="Hapus Data" data-toggle="modal"
-                              data-target="#hapus_transaksi_">
+                              data-target="#hapus_transaksi">
                               <i class="fa fa-trash"></i>
                             </button>
 
                             <button type="button" class="btn btn-primary btn-sm" title="Lihat" data-toggle="modal"
-                              data-target="#lihat_transaksi_">
+                              data-target="#lihat_transaksi">
                               <i class="fa fa-eye"></i>
                             </button>
 
                             <!-- Modal update -->
                             <form action="m_transaksi_edit.php" method="POST" enctype="multipart/form-data">
-                              <div class="modal fade" id="edit_transaksi" tabindex="-1" role="dialog"
+                              <div class="modal fade" id="edit_transaksi<?= $row['id_transaksi'];?>" tabindex="-1" role="dialog"
                                 aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                   <div class="modal-content">
@@ -263,9 +287,9 @@
 
                                       <div class="form-group" style="width:100%;margin-bottom:20px">
                                         <label>Tanggal</label>
-                                        <input type="hidden" name="id" value="">
+                                        <input type="hidden" name="id" value="<?= $row['id_transaksi'];?>">
                                         <input type="date" style="width:100%" name="tanggal" required="required"
-                                          class="form-control datepicker2" value="">
+                                          class="form-control" value="<?= $row['tanggal_transaksi'];?>">
                                       </div>
 
                                       <div class="form-group" style="width:100%;margin-bottom:20px">
@@ -273,8 +297,14 @@
                                         <select name="jenis" style="width:100%" class="form-control"
                                           required="required">
                                           <option value="">- Pilih -</option>
-                                          <option value="Pemasukan">Pemasukan</option>
-                                          <option value="Pengeluaran">Pengeluaran</option>
+                                          <option <?php if ($row['jenis_transaksi']=="Pemasukan") {
+                                            echo "selected='selected'";
+                                          }
+                                          ?>value="Pemasukan">Pemasukan</option>
+                                          <option <?php if ($row['jenis_transaksi']=="Pengeluaran") {
+                                            echo "selected='selected'";
+                                          }
+                                          ?>value="Pengeluaran">Pengeluaran</option>
                                         </select>
                                       </div>
 
@@ -282,28 +312,35 @@
                                         <label>Kategori</label>
                                         <select name="kategori" style="width:100%" class="form-control"
                                           required="required">
-                                          <option value="">- Pilih -</option>
-
+                                          <option value="">-- Pilih --</option>
+                                          <?php
+                                          $data = mysqli_query($kon,"SELECT * FROM tb_kategori ORDER BY nama_kategori ASC");
+                                          while($r = mysqli_fetch_assoc($data)){
+                                            ?>
+                                            <option <?php if($row['kategori_transaksi'] == $r['id_kategori']){
+                                              echo "selected='selected'";} 
+                                              ?> value="<?= $r['id_kategori']; ?>"><?= $r['nama_kategori']; ?></option>
+                                            <?php } ?>
                                         </select>
                                       </div>
 
                                       <div class="form-group" style="width:100%;margin-bottom:20px">
                                         <label>Nominal</label>
                                         <input type="number" style="width:100%" name="nominal" required="required"
-                                          class="form-control" placeholder="Masukkan Nominal .." value="">
+                                          class="form-control" placeholder="Masukkan Nominal .." value="<?= $row['nominal_transaksi'];?>">
                                       </div>
 
                                       <div class="form-group" style="width:100%;margin-bottom:20px">
                                         <label>Keterangan</label>
                                         <textarea name="keterangan" style="width:100%" class="form-control"
-                                          rows="4"></textarea>
+                                          rows="4"><?= $row['keterangan_transaksi'];?></textarea>
                                       </div>
 
                                       <div class="form-group" style="width:100%;margin-bottom:20px">
                                         <label>Upload File</label>
                                         <input type="file" name="trnfoto" class="form-control"><br>
-                                        <!-- <small></small> -->
-                                        <p class="help-block">Bila File tidak dirubah kosongkan saja</p>
+                                        <?= $row['foto_transaksi'];?>
+                                        <p class="help-block">Bila File <?="<a class='fancybox btn btn-xs btn-primary' target=_blank href='../image/bukti/$row[foto_transaksi]'>$row[foto_transaksi]</a>";?>tidak dirubah kosongkan saja</p>
                                       </div>
 
                                     </div>
@@ -319,7 +356,7 @@
                             <!--/Modal update -->
 
                             <!-- Modal hapus -->
-                            <div class="modal fade" id="hapus_transaksi_" tabindex="-1" role="dialog"
+                            <div class="modal fade" id="hapus_transaksi<?= $row['id_transaksi']?>" tabindex="-1" role="dialog"
                               aria-labelledby="exampleModalLabel" aria-hidden="true">
                               <div class="modal-dialog" role="document">
                                 <div class="modal-content">
@@ -336,7 +373,7 @@
                                   </div>
                                   <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                                    <a href="" class="btn btn-primary">Hapus</a>
+                                    <a href="../models/m_kategori_hapus.php?id=<?= $row['id_transaksi']?>" class="btn btn-primary">Hapus</a>
                                   </div>
                                 </div>
                               </div>
@@ -344,6 +381,7 @@
 
                           </td>
                         </tr>
+                        <?php } ?>
                       </tbody>
                     </table>
                     <br>
