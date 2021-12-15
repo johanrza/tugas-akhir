@@ -275,6 +275,7 @@
                               <i class="fa fa-eye"></i>
                             </button>
 
+                        
                             <!-- Modal update -->
                             <form action="../models/m_transaksi_edit.php" method="POST" enctype="multipart/form-data">
                               <div class="modal fade" id="edit_transaksi<?= $row['id_transaksi'];?>" tabindex="-1"
@@ -411,7 +412,6 @@
 
                           </td>
                         </tr>
-                        
                         <?php } ?>
                       </tbody>
                     </table>

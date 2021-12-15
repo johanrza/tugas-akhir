@@ -33,7 +33,12 @@
           <!-- small box -->
           <div class="small-box bg-info">
             <div class="inner">
-              <h3>150</h3>
+              <?php
+              include '../connection.php';
+              $masuk = mysqli_query($kon, "SELECT sum(nominal_transaksi) as tot_masuk FROM tb_transaksi WHERE jenis_transaksi='Pemasukan'");
+              $data = mysqli_fetch_assoc($masuk);
+              ?>
+              <h4><?= "Rp. ".number_format($data['tot_masuk'])." ,-" ?></h4>
 
               <p>Total Pemasukan</p>
             </div>
@@ -48,7 +53,12 @@
           <!-- small box -->
           <div class="small-box bg-success">
             <div class="inner">
-              <h3>53<sup style="font-size: 20px">%</sup></h3>
+              <?php
+              include '../connection.php';
+              $keluar = mysqli_query($kon, "SELECT sum(nominal_transaksi) as tot_keluar FROM tb_transaksi WHERE jenis_transaksi='Pengeluaran'");
+              $data = mysqli_fetch_assoc($keluar);
+              ?>
+              <h4><?= "Rp. ".number_format($data['tot_keluar'])." ,-" ?></h4>
 
               <p>Total Pengeluaran</p>
             </div>
@@ -63,7 +73,12 @@
           <!-- small box -->
           <div class="small-box bg-warning">
             <div class="inner">
-              <h3>44</h3>
+              <?php
+              include '../connection.php';
+              $hutang = mysqli_query($kon, "SELECT sum(nominal_hutang) as tot_hutang FROM tb_hutang");
+              $data = mysqli_fetch_assoc($hutang);
+              ?>
+              <h4><?= "Rp. ".number_format($data['tot_hutang'])." ,-" ?></h4>
 
               <p>Total Hutang</p>
             </div>
@@ -78,7 +93,13 @@
           <!-- small box -->
           <div class="small-box bg-danger">
             <div class="inner">
-              <h3>65</h3>
+              <?php
+              include '../connection.php';
+              $piutang = mysqli_query($kon, "SELECT sum(nominal_piutang) as tot_piutang FROM tb_piutang");
+              $data = mysqli_fetch_assoc($piutang);
+              ?>
+              <h4><?= "Rp. ".number_format($data['tot_piutang'])." ,-" ?></h4>
+
 
               <p>Total Piutang</p>
             </div>
