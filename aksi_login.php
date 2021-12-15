@@ -21,6 +21,9 @@ if($cek > 0){
 	}else if($row['level'] == "manajemen"){
 		$_SESSION['status'] = "manajemen_logedin";
 		header("location:manajemen/");
+	}else if($row['level'] == "pribadi"){
+		$_SESSION['status'] = "pribadi_logedin";
+		header("location:pribadi/");
 	}else{
 		header("location:index.php?alert=gagal");
 	}
