@@ -217,8 +217,8 @@
                           </button>
                           
                           <!-- Modal Update -->
-                          <form action="#" method="POST">
-                            <div class="modal fade" id="edit_hutang" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <form action="../models/m_hutang_edit.php" method="POST">
+                            <div class="modal fade" id="edit_hutang<?= $row['id_hutang'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                               <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                   <div class="modal-header">
@@ -230,20 +230,20 @@
                                   <div class="modal-body">
                                     <div class="form-group" style="width:100%;margin-bottom:20px">
                                       <label>Tanggal</label>
-                                      <input type="hidden" name="id" value="">
+                                      <input type="hidden" name="id" value="<?= $row['id_hutang'] ?>">
                                       <input type="date" style="width:100%" name="tanggal" required="required"
-                                        class="form-control" value="">
+                                        class="form-control" value="<?= $row['tanggal_hutang'] ?>">
                                     </div>
 
                                     <div class="form-group" style="width:100%;margin-bottom:20px">
                                       <label>Nominal</label>
                                       <input type="number" style="width:100%" name="nominal" required="required"
                                         class="form-control" placeholder="Masukkan Nominal .."
-                                        value="">
+                                        value="<?= $row['nominal_hutang'] ?>">
                                     </div>
                                     <div class="form-group" style="width:100%">
                                       <label>Keterangan</label>
-                                      <textarea name="keterangan" style="width:100%" class="form-control" rows="4"></textarea>
+                                      <textarea name="keterangan" style="width:100%" class="form-control" rows="4"><?= $row['keterangan_hutang'] ?></textarea>
                                     </div>
                                   </div>
                                   <div class="modal-footer">
@@ -257,7 +257,7 @@
                           <!-- /Modal Update -->
 
                           <!-- Modal hapus -->
-                          <div class="modal fade" id="hapus_hutang" tabindex="-1"
+                          <div class="modal fade" id="hapus_hutang<?= $row['id_hutang'] ?>" tabindex="-1"
                             role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                               <div class="modal-content">
@@ -274,7 +274,7 @@
                                 </div>
                                 <div class="modal-footer">
                                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                                  <a href="#" class="btn btn-primary">Hapus</a>
+                                  <a href="../models/m_hutang_hapus.php?id=<?=$row['id_hutang'] ?>" class="btn btn-primary">Hapus</a>
                                 </div>
                               </div>
                             </div>
