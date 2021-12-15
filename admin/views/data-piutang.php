@@ -145,7 +145,7 @@
                   <?php include 'alert.php'; ?>
 
                   <!-- Modal -->
-                  <form action="#" method="POST">
+                  <form action="../models/m_piutang.php" method="POST">
                     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                       <div class="modal-dialog" role="document">
                         <div class="modal-content">
@@ -187,7 +187,6 @@
                     <thead>
                       <tr>
                         <th width="1%">NO</th>
-                        <th width="1%">KODE</th>
                         <th width="10%" class="text-center">TANGGAL</th>
                         <th class="text-center">KETERANGAN</th>
                         <th class="text-center">NOMINAL</th>
@@ -195,26 +194,31 @@
                       </tr>
                     </thead>
                     <tbody>
+                      <?php
+                      include '../../connection.php';
+                      $id=1;
+                      $data=mysqli_query($kon, "SELECT * FROM tb_piutang");
+                      while ($row=mysqli_fetch_assoc($data)){
+                      ?>
                       <tr>
-                        <td>#</td>
-                        <td>#</td>
-                        <td>Win 95+</td>
-                        <td>4</td>
-                        <td>X</td>
+                        <td><?= $id++?></td>
+                        <td><?= date('d-m-Y', strtotime($row['tanggal_piutang']))?></td>
+                        <td><?= $row['keterangan_piutang']?></td>
+                        <td><?= "Rp. ".number_format($row['nominal_piutang'])." ,-";?></td>
                         <td>
                           <button type="button" class="btn btn-warning btn-sm" title="Edit Data" data-toggle="modal"
-                            data-target="#edit_piutang">
+                            data-target="#edit_piutang<?= $row['id_piutang']?>">
                             <i class="fa fa-cog"></i>
                           </button>
 
                           <button type="button" class="btn btn-danger btn-sm" title="Hapus Data" data-toggle="modal"
-                            data-target="#hapus_piutang">
+                            data-target="#hapus_piutang<?= $row['id_piutang']?>">
                             <i class="fa fa-trash"></i>
                           </button>
 
                           <!-- Modal Update -->
-                          <form action="#" method="POST">
-                            <div class="modal fade" id="edit_piutang" tabindex="-1" role="dialog"
+                          <form action="../models/m_piutang_edit.php" method="POST">
+                            <div class="modal fade" id="edit_piutang<?= $row['id_piutang']?>" tabindex="-1" role="dialog"
                               aria-labelledby="exampleModalLabel" aria-hidden="true">
                               <div class="modal-dialog" role="document">
                                 <div class="modal-content">
@@ -228,20 +232,20 @@
 
                                     <div class="form-group" style="width:100%;margin-bottom:20px">
                                       <label>Tanggal</label>
-                                      <input type="hidden" name="id" value="">
-                                      <input type="date" style="width:100%" name="tanggal" required="required" class="form-control datepicker2" value="">
+                                      <input type="hidden" name="id" value="<?= $row['id_piutang']?>">
+                                      <input type="date" style="width:100%" name="tanggal" required="required" class="form-control" value="<?= $row['tanggal_piutang']?>">
                                     </div>
 
                                     <div class="form-group" style="width:100%;margin-bottom:20px">
                                       <label>Nominal</label>
                                       <input type="number" style="width:100%" name="nominal" required="required"
-                                        class="form-control" placeholder="Masukkan Nominal .." value="">
+                                        class="form-control" placeholder="Masukkan Nominal .." value="<?= $row['nominal_piutang']?>">
                                     </div>
 
                                     <div class="form-group" style="width:100%">
                                       <label>Keterangan</label>
                                       <textarea name="keterangan" style="width:100%" class="form-control"
-                                        rows="4"></textarea>
+                                        rows="4"><?= $row['keterangan_piutang']?></textarea>
                                     </div>
 
 
@@ -257,7 +261,7 @@
                           <!-- /Modal Update -->
 
                           <!-- Modal Hapus -->
-                          <div class="modal fade" id="hapus_piutang" tabindex="-1" role="dialog"
+                          <div class="modal fade" id="hapus_piutang<?= $row['id_piutang']?>" tabindex="-1" role="dialog"
                             aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                               <div class="modal-content">
@@ -274,7 +278,7 @@
                                 </div>
                                 <div class="modal-footer">
                                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                                  <a href="#" class="btn btn-primary">Hapus</a>
+                                  <a href="../models/m_piutang_hapus.php?id=<?= $row['id_piutang']?>" class="btn btn-primary">Hapus</a>
                                 </div>
                               </div>
                             </div>
@@ -282,6 +286,7 @@
                           <!-- /Modal Hapus -->
                         </td>
                       </tr>
+                      <?php } ?>
                     </tbody>
                   </table>
                   <br>
