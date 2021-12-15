@@ -7,7 +7,7 @@ $nominal  = $_POST['nominal'];
 $keterangan  = $_POST['keterangan'];
 
 $rand = rand();
-$eks =  array('jpg','jpeg','pdf','png');
+$eks =  array('jpg','jpeg','pdf','PNG','png');
 $filename = $_FILES['up_foto']['name'];
 
 if($filename == ""){
