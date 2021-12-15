@@ -143,20 +143,26 @@
                     <thead>
                       <tr>
                         <th width="1%">NO</th>
-                        <th width="1%">KODE</th>
                         <th width="10%" class="text-center">TANGGAL</th>
                         <th class="text-center">KETERANGAN</th>
                         <th class="text-center">NOMINAL</th>
                       </tr>
                     </thead>
                     <tbody>
+                      <?php
+                      include '../../connection.php';
+                      $id=1;
+                      $data = mysqli_query($kon, "SELECT * FROM tb_hutang");
+                      while ($row=mysqli_fetch_assoc($data)) {
+                      ?>
                       <tr>
-                        <td>#</td>
-                        <td>#</td>
-                        <td>Win 95+</td>
-                        <td>4</td>
-                        <td>X</td>
+                        <td><?= $id++?></td>
+                        <td><?= date('d-m-Y', strtotime($row['tanggal_hutang']))?></td>
+                        <td><?= $row['keterangan_hutang']?></td>
+                        <td><?= "Rp. ".number_format($row['nominal_hutang'])." ,-";?></td>
+                        </td>
                       </tr>
+                      <?php } ?>
                     </tbody>
                   </table>
                 </div>
