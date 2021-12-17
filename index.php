@@ -25,6 +25,8 @@ include 'aksi_login.php';
   <title>Financial Advising</title>
   <link rel="stylesheet" href="template/css/animate.min.css" />
   <link rel="stylesheet" href="template/style.css" />
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <!--===============================================================================================-->
   <link rel="icon" type="image/png" href="template/images/icons/favicon.ico" />
   <!--===============================================================================================-->
@@ -80,6 +82,11 @@ include 'aksi_login.php';
             </div>
 
             <form class="login100-form validate-form" action="" method="POST">
+              <?php if (isset($_GET['alert'])){?>
+              <div class="alert alert-danger" role="alert">
+                  <?= $_GET['alert']?>
+              </div>
+              <?php }?>
               <span class="login100-form-title"> Member Login </span>
 
               <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
@@ -280,6 +287,9 @@ include 'aksi_login.php';
     <!-- End of .site-footer -->
   </div>
   <!-- End of #site-content -->
+
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
   <script src="template/js/plugins/plugins.js"></script>
   <script src="template/js/app.js"></script>
