@@ -1,11 +1,11 @@
 <?php
-
+$error = '';
 include 'connection.php';
 
 if(isset($_POST['login'])){
 	$username = $_POST['username'];
 	$password = md5($_POST['password']);
-	$lvl = $_POST['level'];
+	$level = $_POST['level'];
 
 	$result = mysqli_query($kon, "SELECT * FROM tb_login WHERE username='$username' AND password='$password'");
 
@@ -20,8 +20,10 @@ if(isset($_POST['login'])){
 
 		if($row['level'] == "administrator" && $level==1){
             header("Location: admin/");
-        }else if ($row['level'] == "Pegawai" && $level==2) {
-            header("Location: halpegawai.php");
+        }else if ($row['level'] == "manajemen" && $level==2) {
+            header("Location: manajemen/");
+        }else if ($row['level'] == "pribadi" && $level==3) {
+            header("Location: pribadi/");
         }else{
             $error = "login gagal";
         }
