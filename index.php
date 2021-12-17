@@ -100,7 +100,7 @@ include 'aksi_login.php';
                 </span>
               </div>
 
-              <h4><?= $error ?></h4>
+              
 
               <div class="wrap-input100 validate-input" data-validate="Level is required">
                 <select class="input100" name="level" required>
@@ -119,15 +119,7 @@ include 'aksi_login.php';
               </div>
 
               <div class="text-center p-t-12">
-                <span class="txt1"> Forgot </span>
-                <a class="txt2" href="#"> Username / Password? </a>
-              </div>
-
-              <div class="text-center p-t-10">
-                <a class="txt2" href="#">
-                  Create your Account
-                  <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
-                </a>
+                <h6 style="color: red;"><?= $error ?></h6>
               </div>
             </form>
           </div>
