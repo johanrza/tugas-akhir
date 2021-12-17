@@ -25,7 +25,7 @@ if(isset($_POST['login'])){
         }else if ($row['level'] == "pribadi" && $level==3) {
             header("Location: pribadi/");
         }else{
-            $error = "login gagal";
+            $error = "Login gagal";
         }
 	}
 }
