@@ -85,8 +85,21 @@
                 </span>
               </div>
 
+              <div class="wrap-input100 validate-input" data-validate="Level is required">
+                <select class="input100" name="level" required="required" autocomplete="off" data-role="select" data-validate="required not=-1">
+                  <option value="-1" class="d-none">Pilih Level</option>
+                  <option value="1">Value 1</option>
+                  <option value="2">Value 2</option>
+                  <option value="3">Value 3</option>
+                </select>
+                <span class="focus-input100"></span>
+                <span class="symbol-input100">
+                  <i class="fas fa-layer-group" aria-hidden="true"></i>
+                </span>
+              </div>
+
               <div class="container-login100-form-btn">
-                <button type="submit" class="login100-form-btn">Login</button>
+                <button type="submit" name="login" class="login100-form-btn">Login</button>
               </div>
 
               <div class="text-center p-t-12">
