@@ -1,3 +1,22 @@
+<?php
+session_start();
+if($_SESSION){
+    if ($_SESSION['level']=="administrator")
+    {
+        header("Location: admin/");
+    }
+    if ($_SESSION['level']=="manajemen")
+    {
+        header("Location: manajemen/");
+    }
+    if ($_SESSION['level']=="pribadi")
+    {
+        header("Location: pribadi/");
+    }
+}
+include 'aksi_login.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
