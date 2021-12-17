@@ -12,7 +12,7 @@ $filename = $_FILES['up_foto']['name'];
 
 if($filename == ""){
 	mysqli_query($kon, "INSERT INTO tb_transaksi VALUE (NULL,'$tanggal','$jenis','$kategori','$nominal','$keterangan','')")or die(mysqli_error($kon));
-	header("location:transaksi.php?alert=berhasil");
+	header("Location: ../views/data-transaksi.php?alert=berhasil");
 }else{
 	$ext = pathinfo($filename, PATHINFO_EXTENSION);
 
