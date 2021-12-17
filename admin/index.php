@@ -1,3 +1,4 @@
+<?php include '../cekadmin.php';?>
 <?php include 'header.php';?>
 
 <!-- Content Wrapper. Contains page content -->
