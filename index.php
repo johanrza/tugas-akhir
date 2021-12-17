@@ -9,10 +9,6 @@ if($_SESSION){
     {
         header("Location: manajemen/");
     }
-    if ($_SESSION['level']=="pribadi")
-    {
-        header("Location: pribadi/");
-    }
 }
 include 'aksi_login.php';
 ?>
@@ -109,7 +105,6 @@ include 'aksi_login.php';
                   <option selected disabled value="">Pilih Level</option>
                   <option value="1">Administrator</option>
                   <option value="2">Manajemen</option>
-                  <option value="3">Pribadi</option>
                 </select>
                 <span class="focus-input100"></span>
                 <span class="symbol-input100">
