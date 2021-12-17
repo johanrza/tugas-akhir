@@ -100,11 +100,13 @@ include 'aksi_login.php';
                 </span>
               </div>
 
+              <h4><?= $error ?></h4>
+
               <div class="wrap-input100 validate-input" data-validate="Level is required">
                 <select class="input100" name="level" required>
                   <option selected disabled value="">Pilih Level</option>
                   <option value="1">Administrator</option>
-                  <option value="2">Manajemen</option>
+                  <option value="2">Pegawai</option>
                 </select>
                 <span class="focus-input100"></span>
                 <span class="symbol-input100">
