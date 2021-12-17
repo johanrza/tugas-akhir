@@ -27,9 +27,6 @@ include 'aksi_login.php';
   <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 
   <title>Financial Advising</title>
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
   <link rel="stylesheet" href="template/css/animate.min.css" />
   <link rel="stylesheet" href="template/style.css" />
   <!--===============================================================================================-->
@@ -108,9 +105,8 @@ include 'aksi_login.php';
               </div>
 
               <div class="wrap-input100 validate-input" data-validate="Level is required">
-                <select class="input100" name="level" required autocomplete="off" data-role="select"
-                  data-validate="required not=-1">
-                  <option value="-1" class="d-none">Pilih Level</option>
+                <select class="input100" name="level" required>
+                  <option selected disabled value="">Pilih Level</option>
                   <option value="1">Administrator</option>
                   <option value="2">Manajemen</option>
                   <option value="3">Pribadi</option>
@@ -307,8 +303,6 @@ include 'aksi_login.php';
   <script src="template/vendor/select2/select2.min.js"></script>
   <!--===============================================================================================-->
   <script src="template/vendor/tilt/tilt.jquery.min.js"></script>
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <script>
     $('.js-tilt').tilt({
       scale: 1.1,
