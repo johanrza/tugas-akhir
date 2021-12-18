@@ -5,9 +5,9 @@ if($_SESSION){
     {
         header("Location: admin/");
     }
-    if ($_SESSION['level']=="manajemen")
+    if ($_SESSION['level']=="pegawai")
     {
-        header("Location: manajemen/");
+        header("Location: pegawai/");
     }
 }
 include 'aksi_login.php';
