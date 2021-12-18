@@ -62,7 +62,7 @@
             <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image" />
           </div>
           <div class="info">
-            <a href="#" class="d-block">Administrator</a>
+            <a href="#" class="d-block">Pegawai</a>
           </div>
         </div>
         <!-- Sidebar Menu -->
@@ -87,29 +87,6 @@
                 <i class="nav-icon fas fa-file"></i>
                 <p>Data Transaksi</p>
               </a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-edit"></i>
-                <p>
-                  Hutang Piutang
-                  <i class="fas fa-angle-left right"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="views/data-hutang.php" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Hutang</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="views/data-piutang.php" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Piutang</p>
-                  </a>
-                </li>
-              </ul>
             </li>
             <li class="nav-item">
               <a href="models/logout.php" class="nav-link">
