@@ -140,25 +140,29 @@
               <div class="card">
                 <!-- /.card-header -->
                 <div class="card-body">
-
                   <table id="example1" class="table table-bordered table-striped">
                     <thead>
                       <tr>
                         <th width="1%">NO</th>
-                        <th width="1%">KODE</th>
                         <th width="10%" class="text-center">TANGGAL</th>
                         <th class="text-center">KETERANGAN</th>
                         <th class="text-center">NOMINAL</th>
                       </tr>
                     </thead>
                     <tbody>
+                      <?php
+                      include '../../connection.php';
+                      $id=1;
+                      $data=mysqli_query($kon, "SELECT * FROM tb_piutang");
+                      while ($row=mysqli_fetch_assoc($data)){
+                      ?>
                       <tr>
-                        <td>#</td>
-                        <td>#</td>
-                        <td>Win 95+</td>
-                        <td>4</td>
-                        <td>X</td>
+                        <td><?= $id++?></td>
+                        <td><?= date('d-m-Y', strtotime($row['tanggal_piutang']))?></td>
+                        <td class="text-center"><?= $row['keterangan_piutang']?></td>
+                        <td class="text-center"><?= "Rp. ".number_format($row['nominal_piutang'])." ,-";?></td>
                       </tr>
+                      <?php } ?>
                     </tbody>
                   </table>
                 </div>
