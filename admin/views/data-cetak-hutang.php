@@ -159,8 +159,8 @@
                       <tr>
                         <td><?= $id++?></td>
                         <td><?= date('d-m-Y', strtotime($row['tanggal_hutang']))?></td>
-                        <td><?= $row['keterangan_hutang']?></td>
-                        <td><?= "Rp. ".number_format($row['nominal_hutang'])." ,-";?></td>
+                        <td class="text-center"><?= $row['keterangan_hutang']?></td>
+                        <td class="text-center"><?= "Rp. ".number_format($row['nominal_hutang'])." ,-";?></td>
                         </td>
                       </tr>
                       <?php } ?>
