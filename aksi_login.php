@@ -23,6 +23,7 @@ if(isset($_POST['login'])){
         }else if ($row['level'] == "pegawai" && $level==2) {
             header("Location: pegawai/");
         }else{
+			session_destroy();
             $error = "Login gagal";
         }
 	}
