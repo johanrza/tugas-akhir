@@ -78,7 +78,7 @@ include 'aksi_login.php';
         <div class="container-login100">
           <div class="wrap-login100">
             <div class="login100-pic js-tilt" data-tilt>
-              <img src="template/images/img-01.png" alt="IMG" />
+              <img src="template/images/ujb.png" alt="Logo UJB" />
             </div>
 
             <form class="login100-form validate-form" action="" method="POST">
@@ -87,7 +87,7 @@ include 'aksi_login.php';
                   <?= $_GET['alert']?>
               </div>
               <?php }?>
-              <span class="login100-form-title"> Member Login </span>
+              <span class="login100-form-title"> Form Login </span>
 
               <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
                 <input class="input100" type="text" placeholder="Username" name="username" required="required"
