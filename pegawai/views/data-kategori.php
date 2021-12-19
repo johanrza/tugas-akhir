@@ -1,3 +1,4 @@
+<?php include '../../cekpegawai.php';?>
 <!DOCTYPE html>
 <html lang="en">
 
