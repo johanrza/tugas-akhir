@@ -18,7 +18,7 @@
 	<div id="site-content">
 		<header class="site-header text-center">
 			<div class="container">
-				<a href="index.php" id="branding">
+				<a href="../index.php" id="branding">
 					<img src="images/lineo-icon-svgs/icon-8.svg" class="svg-icon">
 					<h1 class="site-title">Universitas Janabadra</h1>
 					<small class="site-slogan">Kampus Kebangsaan</small>
@@ -27,7 +27,7 @@
 				<nav class="main-navigation">
 					<button type="button" class="menu-toggle"><i class="fa fa-bars"></i> Menu</button>
 					<ul>
-						<li><a href="index.php">Home</a></li>
+						<li><a href="../index.php">Home</a></li>
 						<li><a href="about-us.php">About Us</a></li>
 						<li><a href="services.php">Services</a></li>
 						<li><a href="contact.php">Contact</a></li>
