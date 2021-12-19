@@ -151,7 +151,7 @@
                           <th width="1%">NO</th>
                           <th>TANGGAL</th>
                           <th>KATEGORI</th>
-                          <th>KETERANGAN</th>
+                          <th class="text-center">KETERANGAN</th>
                           <th>PEMASUKAN</th>
                           <th>PENGELUARAN</th>
                         </tr>
@@ -168,14 +168,14 @@
                           <td><?= date('d-m-Y', strtotime($row['tanggal_transaksi']));?></td>
                           <td><?= $row['nama_kategori'];?></td>
                           <td><?= $row['keterangan_transaksi'];?></td>
-                          <td><?php 
+                          <td class="text-center"><?php 
                           if ($row['jenis_transaksi']=="Pemasukan") {
                             echo "Rp. ".number_format($row['nominal_transaksi'])." ,-";
                           }else{
                             echo "-";
                           }
                           ?></td>
-                          <td><?php 
+                          <td class="text-center"><?php 
                           if ($row['jenis_transaksi']=="Pengeluaran") {
                             echo "Rp. ".number_format($row['nominal_transaksi'])." ,-";
                           }else{
