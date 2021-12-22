@@ -1,3 +1,0 @@
-# tugas-akhir
-
-MUMET GAN!
