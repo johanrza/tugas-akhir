@@ -1,0 +1,11 @@
+Pastikan saat menjalankan aplikasi ini dengan menggunakan koneksi internet agar framework bootstrap dan icon didalamnya dapat berfungsi.
+
+1. Administrator
+   - Username : admin
+   - Password : admin
+   - Level : Administrator
+
+2. Pegawai
+   - Username : pegawai
+   - Password : pegawai
+   - Level : Pegawai
