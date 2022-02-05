@@ -187,9 +187,9 @@
                                     $data = mysqli_query($kon,"SELECT * FROM tb_kategori ORDER BY nama_kategori ASC");
                                     while($row = mysqli_fetch_array($data)){
                                       ?>
-                                        <option value="<?=$row['id_kategori']; ?>"><?=$row['nama_kategori']; ?>
-                                        </option>
-                                      <?php 
+                                  <option value="<?=$row['id_kategori']; ?>"><?=$row['nama_kategori']; ?>
+                                  </option>
+                                  <?php 
                                     }
                                     ?>
                                 </select>
@@ -274,10 +274,9 @@
                             <button type="button" class="btn btn-primary btn-sm" title="Lihat" data-toggle="modal"
                               data-target="#lihat_transaksi<?= $row['id_transaksi'];?>">
                               <i class="fa fa-eye"></i>
-                            </button>
-
-                        
-                            <!-- Modal update -->
+                            </button>    
+                          </td>
+                          <!-- Modal update -->
                             <form action="../models/m_transaksi_edit.php" method="POST" enctype="multipart/form-data">
                               <div class="modal fade" id="edit_transaksi<?= $row['id_transaksi'];?>" tabindex="-1"
                                 role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -346,12 +345,13 @@
 
                                       <div class="form-group" style="width:100%;margin-bottom:20px">
                                         <label>Upload File</label>
-                                        <input type="file" name="up_foto" class="form-control"><br>
-                                        <?= $row['foto_transaksi'];?>
-                                        <p class="help-block">Bila File
-                                          <?="<a class='fancybox btn btn-xs btn-primary' target=_blank href='../image/bukti/$row[foto_transaksi]'>$row[foto_transaksi]</a>";?>tidak
-                                          dirubah kosongkan saja</p>
+                                        <input type="file" name="up_foto" class="form-control">
                                       </div>
+                                      <p class="help-block">Bila File
+                                        <a class="fancybox btn btn-xs btn-primary" target="_blank"
+                                            href="../image/bukti/<?=$row['foto_transaksi']?>"><?=$row['foto_transaksi']?></a>
+                                        tidak dirubah kosongkan saja
+                                      </p>
 
                                     </div>
                                     <div class="modal-footer">
@@ -389,7 +389,7 @@
                                 </div>
                               </div>
                             </div>
-                            
+
                             <div class="modal fade" id="lihat_transaksi<?= $row['id_transaksi'] ?>" tabindex="-1"
                               role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                               <div class="modal-dialog" role="document">
@@ -410,8 +410,6 @@
                                 </div>
                               </div>
                             </div>
-
-                          </td>
                         </tr>
                         <?php } ?>
                       </tbody>
